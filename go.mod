@@ -7,10 +7,18 @@ require (
 	github.com/uptrace/bun v1.2.1
 )
 
-require golang.org/x/crypto v0.24.0 // indirect
+require (
+	github.com/google/uuid v1.6.0
+	golang.org/x/crypto v0.24.0
+)
 
 require (
-	github.com/anthdm/gothkit v0.0.0-20240609093159-ba618c928403
+	github.com/gorilla/securecookie v1.1.2 // indirect
+	github.com/gorilla/sessions v1.2.2 // indirect
+)
+
+require (
+	github.com/anthdm/gothkit v0.0.0-20240612180244-64943b7cdf25
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
@@ -32,4 +40,4 @@ require (
 // Uncomment this if you are working directly on the core gothkit repo.
 // This will directly reflect changes you've made in the gothkit core repo
 // to the bootstrap folder.
-// replace github.com/anthdm/gothkit => ../
+replace github.com/anthdm/gothkit => ../../superkit

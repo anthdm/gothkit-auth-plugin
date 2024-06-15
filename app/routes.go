@@ -24,9 +24,11 @@ func InitializeMiddleware(router *chi.Mux) {
 func InitializeRoutes(router *chi.Mux) {
 	// Comment out to configure your authentication
 	authConfig := kit.AuthenticationConfig{
-		AuthFunc:    handlers.HandleAuthentication,
+		AuthFunc:    auth.AuthenticateUser,
 		RedirectURL: "/login",
 	}
+
+	auth.InitializeRoutes(router)
 
 	// Routes that "might" have an authenticated user
 	router.Group(func(app chi.Router) {
@@ -35,7 +37,7 @@ func InitializeRoutes(router *chi.Mux) {
 		// Routes
 		// Authentication plugin
 		// Remove this part if you are not going to use session based authentication.
-		auth.InitializeRoutes(app)
+		app.Get("/", kit.Handler(handlers.HandleLandingIndex))
 	})
 
 	// Authenticated routes

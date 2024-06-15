@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* fix for Alpine users. */
+[x-cloak] { 
+  display: none !important; 
+}
+
 @layer base {
   * {
 		@apply border-border;
@@ -10,7 +15,7 @@
 		@apply bg-background text-foreground;
 	}
   label {
-    @apply font-semibold text-xs;
+    @apply font-semibold text-sm;
   }
 
 @layer base {

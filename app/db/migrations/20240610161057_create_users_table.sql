@@ -1,6 +1,6 @@
 -- +goose Up
 create table if not exists users(
-	id serial primary key,
+	id integer primary key,
 	email text unique not null,
 	password_hash text not null,
 	first_name text not null,
